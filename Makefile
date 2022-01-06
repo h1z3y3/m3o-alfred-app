@@ -3,4 +3,4 @@
 app ?= not_exist
 
 build:
-	go build -v -o ./$(app)/bin/gif-search $(app)/main.go
+	go build -v -o ./$(app)/bin/$(app) $(app)/main.go

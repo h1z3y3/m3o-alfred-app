@@ -7,7 +7,7 @@ func NewError(title, subtitle string) Error {
 		Title:    title,
 		Subtitle: subtitle,
 		Icon: Icon{
-			Path: "./assets/error.gif",
+			Path: "./assets/error.png",
 		},
 	}
 }
