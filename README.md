@@ -1,6 +1,6 @@
 # m3o-alfred-workflow
 
-alfred applications, APIs powered by [https://m3o.com](https://m3o.com)
+Collections of alfred workflows, APIs are powered by [https://m3o.com](https://m3o.com)
 
 Alfred Workflow List:
 
