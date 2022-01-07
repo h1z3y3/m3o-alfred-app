@@ -19,7 +19,7 @@ func (is Items) Display() {
 
 			// download the icon
 			if item.IconType == IconTypeUrl {
-				p, _ := NewIcon(item.Icon.Path).Cache()
+				p, _ := NewCache(item.Icon.Path).Cache()
 				is[k].Icon.Path = p
 			}
 
