@@ -3,6 +3,7 @@ package m3o
 import (
 	"bytes"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -38,7 +39,7 @@ func (m *micro) Post(servicePath string, data Data) *micro {
 	req, err := http.NewRequest(method, url, bytes.NewReader(bs))
 
 	if err != nil {
-		fmt.Println(err)
+		m.error = err
 		return m
 	}
 	req.Header.Add("Authorization", fmt.Sprintf("Bearer %s", m.token))
@@ -46,7 +47,7 @@ func (m *micro) Post(servicePath string, data Data) *micro {
 
 	resp, err := client.Do(req)
 	if err != nil {
-		fmt.Println(err)
+		m.error = err
 		return m
 	}
 
@@ -58,6 +59,10 @@ func (m *micro) Post(servicePath string, data Data) *micro {
 func (m *micro) Bytes() ([]byte, error) {
 	if m.error != nil {
 		return nil, m.error
+	}
+
+	if m.response.StatusCode != http.StatusOK {
+		return nil, errors.New("micro response status is not 200")
 	}
 
 	defer m.response.Body.Close()
