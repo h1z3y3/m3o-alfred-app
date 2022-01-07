@@ -54,7 +54,7 @@ func main() {
 	items := workflow.Items{
 		workflow.Item{
 			Title:    "Press Enter to Copy",
-			Subtitle: "",
+			Subtitle: qr,
 			Valid:    true,
 			Arg:      fmt.Sprintf("%s##%s", cache, qr),
 			Icon: workflow.Icon{
